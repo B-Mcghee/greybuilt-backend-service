@@ -5,6 +5,7 @@ let projects = module.exports = {}
 projects.index = (req, res, next) => {
   projectsDb.listProjects()
     .then(data => {
+      console.log(data)
       res.send(data)
     })
 }

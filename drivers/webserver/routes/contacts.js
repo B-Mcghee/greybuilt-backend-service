@@ -1,46 +1,25 @@
-const express = require('express');
-const router = express.Router();
-const ContactControls = require('../controllers/ContactController');
+let contactsDb = require('../../../data-access/contacts-db/memory/index')
 
+let contacts = module.exports = {}
 
-// Get All contacts
-router.get('/', ContactControls.all);
+contacts.index = (req, res, next) => {
+  contactsDb.listContacts()
+    .then(data => {
+      res.send(data)
+    })
+}
 
-// Get Single Contact
-router.get('/:id', async (req, res) => {
-    try{
-        const contact = await Contact.findById(req.params.id);
-        res.json(contact);
-    }
-    catch(err)
-    {
-        res.json({ message: err });
-    }
-    });
+contacts.show = (req, res, next) => {
+  contactsDb.findContact('id', req.params.id)
+    .then(data => {
+      res.send(data)
+    })
+}
 
-
-// Send Contacts
-router.post('/', ContactControls.create)
-
-//Delete Contacts
-
-router.delete('/:id', ContactControls.delete)
-
-// Update Contact 
-router.patch('/:id', async (req, res) => {
-    try {
-        const update = await Contact.updateOne(
-            {_id : req.params.id}, 
-            {$set: {title: req.body.title}}
-            );
-        res.json(update);
-    }
-    catch(err)
-    {
-        res.json( { message: err});
-    }
-});
-
-
-
-module.exports = router;
+contacts.create = (req, res, next) => {
+  contactsDb.addContact(req.body)
+    .then(data => {
+      res.send(data)
+    })
+    .catch(next)
+}

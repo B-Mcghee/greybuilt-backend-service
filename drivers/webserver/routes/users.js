@@ -18,7 +18,7 @@ users.show = (req, res, next) => {
 }
 
 users.create = (req, res, next) => {
-  usersDb.addUser(req.body)
+  usersDb.createUser(req.body)
     .then(data => {
       res.send(data)
     })

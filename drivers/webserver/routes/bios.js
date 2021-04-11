@@ -1,46 +1,25 @@
-const express = require('express');
-const router = express.Router();
-const BioControls = require('../../../controllers/BioController');
+let biosDb = require('../../../data-access/bios-db/memory/index')
 
+let bios = module.exports = {}
 
-// Get All bios
-router.get('/', BioControls.all);
+bios.index = (req, res, next) => {
+  biosDb.listBios()
+    .then(data => {
+      res.send(data)
+    })
+}
 
-// Get Single Bio
-router.get('/:id', async (req, res) => {
-    try{
-        const bio = await Bio.findById(req.params.id);
-        res.json(bio);
-    }
-    catch(err)
-    {
-        res.json({ message: err });
-    }
-    });
+bios.show = (req, res, next) => {
+  biosDb.findBio('id', req.params.id)
+    .then(data => {
+      res.send(data)
+    })
+}
 
-
-// Send Bios
-router.post('/', BioControls.create)
-
-//Delete Bios
-
-router.delete('/:id', BioControls.delete)
-
-// Update Bio 
-router.patch('/:id', async (req, res) => {
-    try {
-        const update = await Bio.updateOne(
-            {_id : req.params.id}, 
-            {$set: {title: req.body.title}}
-            );
-        res.json(update);
-    }
-    catch(err)
-    {
-        res.json( { message: err});
-    }
-});
-
-
-
-module.exports = router;
+bios.create = (req, res, next) => {
+  biosDb.addBio(req.body)
+    .then(data => {
+      res.send(data)
+    })
+    .catch(next)
+}

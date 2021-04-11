@@ -4,7 +4,7 @@ const projects =  [
       title: "Corydon",
       description:
         "This project holds dear to Greybuilt, because it was the first opportunity someone trusted us in building their dream home and they love it",
-      cover_image: "Home.jpg",
+      coverImage: "Home.jpg",
       images: ["forsale.jpg", "Home.jpg", "side.jpg"],
       squareFeet: "1,456",
       beds:3,
@@ -16,7 +16,7 @@ const projects =  [
       title: "Louisville",
       description:
         "This project holds dear to Greybuilt, because it was the first opportunity someone trusted us in building their dream home and they love it",
-      cover_image: "forsale.jpg",
+      coverImage: "forsale.jpg",
       images: ["forsale.jpg", "Home.jpg", "side.jpg"],
       squareFeet: "1,956",
       beds:3,
@@ -28,7 +28,7 @@ const projects =  [
       title: "Sellersburg",
       description:
         "This project holds dear to Greybuilt, because it was the first opportunity someone trusted us in building their dream home and they love it",
-      cover_image: "forsale.jpg",
+      coverImage: "forsale.jpg",
       images: ["forsale.jpg", "Home.jpg", "side.jpg"],
       squareFeet: "3,456",
       beds:3,
@@ -40,7 +40,7 @@ const projects =  [
       title: "Corydon",
       description:
         "This project holds dear to Greybuilt, because it was the first opportunity someone trusted us in building their dream home and they love it",
-      cover_image: "Home.jpg",
+      coverImage: "Home.jpg",
       images: ["forsale.jpg", "Home.jpg", "side.jpg"],
       squareFeet: "1,456",
       beds:3,
@@ -52,7 +52,7 @@ const projects =  [
       title: "Louisville",
       description:
         "This project holds dear to Greybuilt, because it was the first opportunity someone trusted us in building their dream home and they love it",
-      cover_image: "forsale.jpg",
+      coverImage: "forsale.jpg",
       images: ["forsale.jpg", "Home.jpg", "side.jpg"],
       squareFeet: "1,956",
       beds:3,
@@ -64,7 +64,7 @@ const projects =  [
       title: "Sellersburg",
       description:
         "This project holds dear to Greybuilt, because it was the first opportunity someone trusted us in building their dream home and they love it",
-      cover_image: "forsale.jpg",
+      coverImage: "forsale.jpg",
       images: ["forsale.jpg", "Home.jpg", "side.jpg"],
       squareFeet: "3,456",
       beds:3,

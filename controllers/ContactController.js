@@ -2,8 +2,14 @@ const ContactModel = require('../models/Contact');
 
 let ContactController = {
     find: async (req, res) => {
-        let contact = await ContactModel.find({contactId: req.params.contactId}).populate("images");
-        res.json(contact);
+        try{
+            let contact = await ContactModel.find({contactId: req.params.contactId});
+            res.json(contact);
+        }
+        catch(err){
+            res.json(err);
+    }
+
     },
     all: async (req, res) => {
         let allContacts = await ContactModel.find();
@@ -11,24 +17,31 @@ let ContactController = {
     },
     create: async ( req, res) => {
 
-        let newContact = new ContactModel(req.body);
+        let newContact = ContactModel(req.body);
         try{
-            let savedContact = newContact.save();
+            let savedContact = await newContact.save();
             res.json(savedContact);
         }
-        catch(err){
+        catch(err)
+        {
             res.json(err);
         }
+
+
     },
     delete: async (req, res) => {
         try{
-            await ContactModel.remove({contactId: req.params.id});
-            res.status(200);
+            const contact = await ContactModel.remove({contactId: req.params.id});
+            res.json(contact);
         }
-        catch(err){
+        catch(err)
+        {
             res.json(err);
         }
+
+        
     }
+
 }
 
 module.exports = ContactController;

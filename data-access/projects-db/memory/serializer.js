@@ -1,8 +1,8 @@
 const _serializeSingle = (project) => {
     return {
       'id': project.serial,
-      'title': project.email,
-      'description': project.name,
+      'title': project.title,
+      'description': project.description,
       'coverImage': project.coverImage,
       'images': project.images,
       'squareFeet': project.squareFeet,

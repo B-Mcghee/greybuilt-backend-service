@@ -2,11 +2,6 @@ let User = require('../../../db/models/user');
 let makeUser = require('../../../models/user/index');
 let serialize = require('./serializer');
 
-let listUsers = () => {
-    return User.find({})
-    .then(serialize);
-}
-
 
 let listUsers = () => {
     return User.find({})
@@ -28,7 +23,7 @@ let listUsers = () => {
       .then(serialize)
   }
 
-  let addUser = (userInfo) => {
+  let createUser = (userInfo) => {
     let user = makeUser(userInfo)
     let newUser = {
       name: user.getName(),
@@ -64,7 +59,7 @@ let deleteUser = (id) => {
     listUsers,
     findUser,
     findUsersBy,
-    addUser,
+    createUser,
     deleteUser,
     dropAll
   }
